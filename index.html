@@ -23,7 +23,7 @@
       <script>
         $(document).ready(function(){
           var $body = $('body');
-          // $body.html('');
+          $('.twit-feed').html('');
 
           var index = streams.home.length - 1;
           while(index >= 0){
@@ -33,9 +33,9 @@
             $tweet.appendTo($('.twit-feed'));
             index -= 1;
           }
-          $('twit-button').on('click', addTweet);
-        });
 
+        });
+        $('.twit-button').on('click', generateRandomTweet);
       </script>
     </div>
 

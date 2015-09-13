@@ -1,4 +1,12 @@
 .twit-feed {
   margin: auto;
   width: 66%;
+  padding: 50px;
+}
+
+.tweets {
+  background: #f6fbfc;
+  width: 500px;
+  height: 95px;
+  border: 7px rgb(26, 164, 226) solid;
 }

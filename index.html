@@ -13,18 +13,30 @@
         $(document).ready(function(){
           var $body = $('body');
           $('.twit-feed').html('');
+          $button = $('<button>Add tweet</button>');
+          $('.twit-feed').append($button);
+          $button.on('click', function(){
+            var index = streams.home.length - 1;
+              var tweet = streams.home[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message);
+              $tweet.appendTo($('.twit-feed'));
+          });
+
+
 
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
+            var $tweet = $('<div></div>').attr('class', 'tweets');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
             $tweet.appendTo($('.twit-feed'));
             index -= 1;
           }
 
         });
-        $('.twit-button').on('click', generateRandomTweet);
+
+
       </script>
     </div>
 

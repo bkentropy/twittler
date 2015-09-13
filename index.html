@@ -6,25 +6,27 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="twittler-feed">
-      <script>
 
+
+    <div class="twit-feed">
+      <script>
         $(document).ready(function(){
           var $body = $('body');
-          $body.html('');
+          $('.twit-feed').html('');
 
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
-            $tweet.appendTo($body);
+            $tweet.appendTo($('.twit-feed'));
             index -= 1;
           }
 
         });
-
+        $('.twit-button').on('click', generateRandomTweet);
       </script>
     </div>
+
   </body>
 </html>

@@ -1,12 +1,16 @@
 .twit-feed {
   margin: auto;
-  width: 66%;
+  width: 33%;
   padding: 50px;
 }
 
 .tweets {
+  margin-bottom: 10px;
+  overflow: auto;
+  clear: both;
   background: #f6fbfc;
-  width: 500px;
-  height: 95px;
-  border: 7px rgb(26, 164, 226) solid;
+  border-radius: 5px;
+  /*width: 500px;
+  height: 20px;*/
+  border: 2px rgb(26, 164, 226) solid;
 }

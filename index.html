@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-
-<<<<<<< HEAD
     <div class="header">
       <h1>Twittler.inc</h1>
     </div>
@@ -19,17 +17,12 @@
         <p>Lorem</p>
     </div>
 
-=======
->>>>>>> inside-script
-
     <div class="twit-feed">
       <script>
         $(document).ready(function(){
 
           var $body = $('body');
           $('.twit-feed').html('');
-<<<<<<< HEAD
-=======
           $button = $('<button>Refresh tweets</button>');
           $('.twit-feed').append($button);
           $button.on('click', function(){
@@ -40,37 +33,23 @@
               $tweet.appendTo($('.twit-feed'));
           });
 
-
->>>>>>> inside-script
-
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-<<<<<<< HEAD
-            var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
-=======
             var $tweet = $('<div></div>').attr('class', 'tweets');
             $tweet.html('@' + tweet.user + ': ' + tweet.message + '<br>' + new Date());
->>>>>>> inside-script
             $tweet.appendTo($('.twit-feed'));
             index -= 1;
           }
 
         });
-<<<<<<< HEAD
-        $('.twit-button').on('click', generateRandomTweet);
+
+
       </script>
     </div>
 
     <div class='footer'>
     </div>
-=======
 
-
-      </script>
-    </div>
-
->>>>>>> inside-script
   </body>
 </html>

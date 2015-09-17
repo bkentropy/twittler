@@ -15,15 +15,17 @@
 }
 .nav {
     line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
+    /*background-color:#eeeeee;*/
+    height:100%;
+    width:200px;
     float:left;
+    margin-left: 150px;
     padding:5px;
 }
 .twit-feed {
     width:350px;
-    float:left;
+    float:right;
+    margin-right: 303px;
     padding:10px;
 }
 .footer {
@@ -32,14 +34,23 @@
     clear:both;
     text-align:center;
     padding:5px;
-
+}
 .tweets {
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   overflow: auto;
   clear: both;
   background: #f6fbfc;
   border-radius: 5px;
-  /*width: 500px;
-  height: 20px;*/
+  width: 500px;
+  /*height: 20px;*/
   border: 2px rgb(26, 164, 226) solid;
+}
+
+button {
+  margin: auto;
+  width: 182px;
+}
+
+.new-tweets {
+  width: 180px;
 }

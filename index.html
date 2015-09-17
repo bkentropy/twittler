@@ -11,10 +11,7 @@
     </div>
 
     <div class='nav'>
-        <button type="button" class="twit-button">Get new twit!</button>
-        <p>Filler</p>
-        <p>Ipsum</p>
-        <p>Lorem</p>
+        <p>Click here to get a new tweet!</p>
     </div>
 
     <div class="twit-feed">
@@ -23,27 +20,53 @@
 
           var $body = $('body');
           $('.twit-feed').html('');
-          $button = $('<button>Refresh tweets</button>');
-          $('.twit-feed').append($button);
+          $button = $('<button>New Tweet!</button>');
+          $('.nav > p').append($button);
+
+          // Click this button to put addititional random tweets on the page.
           $button.on('click', function(){
               var index = streams.home.length - 1;
               var tweet = streams.home[index];
               var $tweet = $('<div></div>').attr('class', 'tweets');
-              $tweet.html('@' + tweet.user + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.html('@' + "<a href='#'>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
               $tweet.appendTo($('.twit-feed'));
           });
 
+          // Populate the page with 10 random tweets.
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>').attr('class', 'tweets');
-            $tweet.html('@' + tweet.user + ': ' + tweet.message + '<br>' + new Date());
+            var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+            $tweet.html('@' + "<a href='#'>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
             $tweet.appendTo($('.twit-feed'));
             index -= 1;
           }
 
         });
 
+        // Create an input box
+        $newTweeter = $('<div>');
+        $('.nav').append($newTweeter);
+        $newTweeter.html('<p>Type a tweet in the text box</p> \n' +
+      '<form><input type="text" class="new-tweets"></form>');
+
+        // On click of a username return just that streams
+        $username = $('#mracus');
+        $username.on('click', function(){
+          $('.twit-feed').html('');
+          var index = streams.users.shawndrost.length - 1;
+          while(index >= 0){
+            var tweet = streams.users.shawndrost[index];
+            var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+            $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+            $tweet.appendTo($('.twit-feed'));
+            index -= 1;
+          }
+          // streams.users.shawndrost = [];
+          // streams.users.sharksforcheap = [];
+          // streams.users.mracus = [];
+          // streams.users.douglascalhoun
+        })
 
       </script>
     </div>

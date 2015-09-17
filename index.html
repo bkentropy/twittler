@@ -42,31 +42,68 @@
             index -= 1;
           }
 
+          // On click of a username return just that streams
+          // streams.users.shawndrost = [];
+          $shawndrost = $('#shawndrost');
+          $shawndrost.on('click', function(){
+            $('.twit-feed').html('');
+            var index = streams.users.shawndrost.length - 1;
+            while(index >= 0){
+              var tweet = streams.users.shawndrost[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+              $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.appendTo($('.twit-feed'));
+              index -= 1;
+            }
+          });
+          // streams.users.sharksforcheap = [];
+          $sharksforcheap = $('#sharksforcheap');
+          $sharksforcheap.on('click', function(){
+            $('.twit-feed').html('');
+            var index = streams.users.sharksforcheap.length - 1;
+            while(index >= 0){
+              var tweet = streams.users.sharksforcheap[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+              $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.appendTo($('.twit-feed'));
+              index -= 1;
+            }
+          });
+          // streams.users.mracus = [];
+          $mracus = $('#mracus');
+          $mracus.on('click', function(){
+            $('.twit-feed').html('');
+            var index = streams.users.mracus.length - 1;
+            while(index >= 0){
+              var tweet = streams.users.mracus[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+              $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.appendTo($('.twit-feed'));
+              index -= 1;
+            }
+          });
+          // streams.users.douglascalhoun
+          $douglascalhoun = $('#douglascalhoun');
+          $douglascalhoun.on('click', function(){
+            $('.twit-feed').html('');
+            var index = streams.users.douglascalhoun.length - 1;
+            while(index >= 0){
+              var tweet = streams.users.douglascalhoun[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+              $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.appendTo($('.twit-feed'));
+              index -= 1;
+            }
+          });
+
         });
 
-        // Create an input box
-        $newTweeter = $('<div>');
-        $('.nav').append($newTweeter);
-        $newTweeter.html('<p>Type a tweet in the text box</p> \n' +
-      '<form><input type="text" class="new-tweets"></form>');
-
-        // On click of a username return just that streams
-        $username = $('#mracus');
-        $username.on('click', function(){
-          $('.twit-feed').html('');
-          var index = streams.users.shawndrost.length - 1;
-          while(index >= 0){
-            var tweet = streams.users.shawndrost[index];
-            var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
-            $tweet.html('@' + "<a>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
-            $tweet.appendTo($('.twit-feed'));
-            index -= 1;
-          }
-          // streams.users.shawndrost = [];
-          // streams.users.sharksforcheap = [];
-          // streams.users.mracus = [];
-          // streams.users.douglascalhoun
-        })
+          // Any reason for this to not be in the document.ready part? hm
+          // Create an input box
+          $newTweeter = $('<div>');
+          $('.nav').append($newTweeter);
+          $newTweeter.html('<p>Type a tweet in the text box</p> \n' +
+        '<form><input type="text" class="new-tweets"></form>');
 
       </script>
     </div>

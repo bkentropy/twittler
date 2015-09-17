@@ -18,12 +18,19 @@
       <script>
         $(document).ready(function(){
 
+          // Structure: Create an input box
+          $newTweeter = $('<div>');
+          $('.nav').append($newTweeter);
+          $newTweeter.html('<p>Type a tweet in the text box</p> \n' +
+            '<form><input type="text" class="new-tweets"></form>');
+
+          // Structure: Create the New Tweet button
           var $body = $('body');
           $('.twit-feed').html('');
           $button = $('<button>New Tweet!</button>');
           $('.nav > p').append($button);
 
-          // Click this button to put addititional random tweets on the page.
+          // Behavior: Click New Tweet to put addititional random tweets on the page.
           $button.on('click', function(){
               var index = streams.home.length - 1;
               var tweet = streams.home[index];
@@ -31,6 +38,25 @@
               $tweet.html('@' + "<a href='#'>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
               $tweet.appendTo($('.twit-feed'));
           });
+
+          // Structure: A button that will post all users
+          $refreshTweets = $('<div>').attr('class', 'tweet-button');
+          $('nav').append($refreshTweets);
+          $refreshButton = $('<button>All users tweets</button>').attr('class', 'refresher');
+          $('.nav').prepend($refreshButton);
+
+          // Behavior: refresh the page to all users
+          $refreshButton.on('click', function(){
+            $('.twit-feed').html('');
+            var index = streams.home.length - 1;
+            while(index >= 0){
+              var tweet = streams.home[index];
+              var $tweet = $('<div></div>').attr('class', 'tweets').attr('id', tweet.user);
+              $tweet.html('@' + "<a href='#'>" + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + new Date());
+              $tweet.appendTo($('.twit-feed'));
+              index -= 1;
+            }
+          })
 
           // Populate the page with 10 random tweets.
           var index = streams.home.length - 1;
@@ -42,6 +68,8 @@
             index -= 1;
           }
 
+
+          //     ====== USER FILTER BUTTON SECTION ======
           // On click of a username return just that streams
           // streams.users.shawndrost = [];
           $shawndrost = $('#shawndrost');
@@ -97,13 +125,6 @@
           });
 
         });
-
-          // Any reason for this to not be in the document.ready part? hm
-          // Create an input box
-          $newTweeter = $('<div>');
-          $('.nav').append($newTweeter);
-          $newTweeter.html('<p>Type a tweet in the text box</p> \n' +
-        '<form><input type="text" class="new-tweets"></form>');
 
       </script>
     </div>
